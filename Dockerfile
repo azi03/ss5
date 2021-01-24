@@ -5,4 +5,5 @@ ADD ss5-3.8.9-8.tar.gz /data/app
 
 RUN apk update \
     && apk upgrade \
-    && apk add --no-cache bash bash-doc bash-completion 
+    && apk add --no-cache bash bash-doc bash-completion \
+		vim net-tools
