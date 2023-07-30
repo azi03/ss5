@@ -6,13 +6,10 @@ deb-src [check-valid-until=no] http://archive.debian.org/debian/ jessie main non
 deb-src [check-valid-until=no] http://archive.debian.org/debian/ jessie-backports main non-free contrib\n \
 deb [check-valid-until=no] http://archive.debian.org/debian-security/ jessie/updates main non-free contrib\n \
 deb-src [check-valid-until=no] http://archive.debian.org/debian-security/ jessie/updates main non-free contrib" > /etc/apt/sources.list
-#RUN sed -i '/jessie-updates/d' /etc/apt/sources.list
 
 RUN apt-get update \
 	&& apt-get install -y --force-yes gcc make libpam0g-dev libldap2-dev openssl libpcap-dev libssl-dev \
 	&& rm -rf /var/lib/apt/lists/*
-
-#COPY ss5-3.8.9-8.tar.gz /ss5-3.8.9.tar.gz
 
 ADD ss5-3.8.9 /ss5-3.8.9
 
