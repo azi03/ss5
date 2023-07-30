@@ -1,12 +1,14 @@
 FROM debian:jessie
 
 RUN echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main\n \
-deb [check-valid-until=no] http://archive.debian.org/debian wheezy main non-free contrib\n \
-deb [check-valid-until=no] http://archive.debian.org/debian wheezy-proposed-updates main contrib non-free\n \
-deb-src [check-valid-until=no] http://archive.debian.org/debian wheezy main non-free contrib\n \
-deb-src [check-valid-until=no] http://archive.debian.org/debian wheezy-proposed-updates main contrib non-free\n \
-deb [check-valid-until=no] http://archive.debian.org/debian-security wheezy/updates main contrib non-free \n \
-deb-src [check-valid-until=no] http://archive.debian.org/debian-security wheezy/updates main contrib non-free " > /etc/apt/sources.list
+deb [check-valid-until=no] http://archive.debian.org/debian/ jessie main non-free contrib\n \
+deb [check-valid-until=no] http://archive.debian.org/debian/ jessie-updates main non-free contrib\n \
+deb [check-valid-until=no] http://archive.debian.org/debian/ jessie-backports main non-free contrib\n \
+deb-src [check-valid-until=no] http://archive.debian.org/debian/ jessie main non-free contrib\n \
+deb-src [check-valid-until=no] http://archive.debian.org/debian/ jessie-updates main non-free contrib\n \
+deb-src [check-valid-until=no] http://archive.debian.org/debian/ jessie-backports main non-free contrib\n \
+deb [check-valid-until=no] http://archive.debian.org/debian-security/ jessie/updates main non-free contrib\n \
+deb-src [check-valid-until=no] http://archive.debian.org/debian-security/ jessie/updates main non-free contrib" > /etc/apt/sources.list
 #RUN sed -i '/jessie-updates/d' /etc/apt/sources.list
 
 RUN apt-get update \
