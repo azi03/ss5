@@ -17,6 +17,7 @@ RUN apt-get update \
 ADD ss5-3.8.9 /ss5-3.8.9
 
 RUN cd /ss5-3.8.9 \
+    && chmod +x configure \
 	&& ./configure \
 	&& make \
 	&& make install \
