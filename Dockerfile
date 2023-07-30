@@ -12,10 +12,11 @@ RUN apt-get update \
 	&& apt-get install -y --force-yes gcc make libpam0g-dev libldap2-dev openssl libpcap-dev libssl-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
-COPY ss5-3.8.9-8.tar.gz /ss5-3.8.9.tar.gz
+#COPY ss5-3.8.9-8.tar.gz /ss5-3.8.9.tar.gz
 
-RUN tar zxvf ss5-3.8.9.tar.gz \
-	&& cd /ss5-3.8.9 \
+ADD ss5-3.8.9 /ss5-3.8.9
+
+RUN cd /ss5-3.8.9 \
 	&& ./configure \
 	&& make \
 	&& make install \
