@@ -1,6 +1,9 @@
 FROM debian:jessie
 
-RUN echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main" > /etc/apt/sources.list
+RUN echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main\n \
+deb http://mirrors.163.com/debian wheezy main non-free contrib\n \
+deb http://mirrors.163.com/debian wheezy-proposed-updates main contrib non-free\n \
+deb http://mirrors.163.com/debian-security wheezy/updates main contrib non-free" > /etc/apt/sources.list
 #RUN sed -i '/jessie-updates/d' /etc/apt/sources.list
 
 RUN apt-get update \
