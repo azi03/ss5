@@ -1,9 +1,13 @@
 FROM debian:jessie
 
-COPY ss5-3.8.9-8.tar.gz /ss5-3.8.9.tar.gz
+RUN echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list
+RUN sed -i '/deb http:\/\/deb.debian.org\/debian jessie-updates main/d' /etc/apt/sources.list
+
 RUN apt-get update \
 	&& apt-get install -y gcc make libpam0g-dev libldap2-dev openssl libpcap-dev libssl-dev \
 	&& rm -rf /var/lib/apt/lists/*
+
+COPY ss5-3.8.9-8.tar.gz /ss5-3.8.9.tar.gz
 
 RUN tar zxvf ss5-3.8.9.tar.gz \
 	&& cd /ss5-3.8.9 \
