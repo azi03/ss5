@@ -1,7 +1,6 @@
 FROM debian:jessie
 
-RUN echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main\n \
-deb [check-valid-until=no] http://archive.debian.org/debian/ jessie main non-free contrib\n \
+RUN echo "deb [check-valid-until=no] http://archive.debian.org/debian/ jessie main non-free contrib\n \
 deb [check-valid-until=no] http://archive.debian.org/debian/ jessie-backports main non-free contrib\n \
 deb-src [check-valid-until=no] http://archive.debian.org/debian/ jessie main non-free contrib\n \
 deb-src [check-valid-until=no] http://archive.debian.org/debian/ jessie-backports main non-free contrib\n \
